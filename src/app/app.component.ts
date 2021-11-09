@@ -7,10 +7,15 @@ import { TaskService } from './services/task.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'todo-angular';
+
+  public tasks : any = [];
+
   constructor (private _taskService : TaskService){
     this._taskService.getTasks().subscribe(data =>{
-      console.log(data);
+      this.tasks = data;
+      console.log(this.tasks)
     });
   }
 }
