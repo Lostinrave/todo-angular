@@ -10,15 +10,13 @@
       "id": 2,
       "title": "json-post",
       "author": "Ben",
-      "completed": true
-
+      "completed": false
     },
     {
       "id": 3,
       "title": "another-json-post",
       "author": "Somebody",
       "completed": true
-
     }
   ]
 }
