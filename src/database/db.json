@@ -3,17 +3,22 @@
     {
       "id": 1,
       "title": "json-server",
-      "author": "typicode"
+      "author": "typicode",
+      "completed": false
     },
     {
       "id": 2,
       "title": "json-post",
-      "author": "Ben"
+      "author": "Ben",
+      "completed": true
+
     },
     {
       "id": 3,
       "title": "another-json-post",
-      "author": "Somebody"
+      "author": "Somebody",
+      "completed": true
+
     }
   ]
 }
