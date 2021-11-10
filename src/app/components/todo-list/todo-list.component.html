@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>
+          <i class="bi bi-activity"></i>
+          TO DO list 
+        </h1>
+      </div>
+      <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>ID</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let task of tasks" [class.completed]="task.completed">
+            <td>
+              <input type="checkbox" [checked]="task.completed"
+              (change)="task.completed = !task.completed"
+              >
+            </td>
+          <td>
+            <i class="bi bi-alarm"></i>{{task.title}}
+          </td>
+          <td>
+            {{task.author}}
+          </td>
+          <td>
+            {{task.id}}
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+  </div>
