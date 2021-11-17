@@ -1,22 +1,35 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode",
-      "completed": false
-    },
-    {
-      "id": 2,
-      "title": "json-post",
+      "title": "Learn React",
+      "completed": false,
       "author": "Ben",
-      "completed": false
+      "id": 5
     },
     {
-      "id": 3,
-      "title": "another-json-post",
-      "author": "Somebody",
-      "completed": true
+      "title": "Learn Angular",
+      "completed": false,
+      "author": "Ben",
+      "id": 6
+    },
+    {
+      "title": "Get a Job",
+      "completed": false,
+      "author": "Ben",
+      "priority": "high",
+      "id": 7
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "lost",
+      "email": "lostinrave@gmail.com"
+    },
+    {
+      "name": "Ben",
+      "email": "benaskalvinas@gmail.com",
+      "id": 2
     }
   ]
 }

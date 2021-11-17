@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Task } from 'src/app/interfaces/task';
 
 @Component({
   selector: 'app-task-card',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskCardComponent implements OnInit {
 
-  constructor() { }
+ // Pasirinktos uzduoties Task objektas
+ @Input() task : Task| null = null;
+ @Output() taskDetailsCloseEvent : EventEmitter<boolean> = new EventEmitter();
 
-  ngOnInit(): void {
-  }
+ constructor() { }
+
+ ngOnInit(): void {
+   console.log(this.task);
+ }
+
+ closeTaskDetails() {
+   this.taskDetailsCloseEvent.emit(true);
+ }
 
 }

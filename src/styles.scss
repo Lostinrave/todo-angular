@@ -2,7 +2,16 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~bootstrap-icons/font/bootstrap-icons.css';
 
-.completed {
-    text-decoration: line-through;
-    color: rgb(255, 51, 0);
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+
+/* Klase kuri pridedama uzduotims, kurios yra atliktos */
+.task-completed {
+  text-decoration: line-through;
+  color: red;
+}
+
+#sidebar {
+  min-height: 100vh;
 }

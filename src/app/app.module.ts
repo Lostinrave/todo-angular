@@ -5,17 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TaskCardComponent } from './components/task-card/task-card.component';
+import { TaskCreateComponent } from './components/task-create/task-create.component';
+import { FormsModule } from '@angular/forms';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
-    TaskCardComponent
+    TaskCardComponent,
+    TaskCreateComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

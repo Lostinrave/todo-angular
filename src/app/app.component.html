@@ -1,2 +1,44 @@
-<app-todo-list></app-todo-list>
-<router-outlet></router-outlet>
+<nav class="navbar navbar-light bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <a class="navbar-brand" routerLink="/">
+          <img src="/assets/img/logo-bit.png" width="100"
+          class="d-inline-block align-top"
+          alt="logo">
+          Todo List
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-sm-4 bg-dark pt-3 h-100" id="sidebar">
+      <div class="card mt-3">
+        <div class="card-header">
+          Meniu
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a routerLink="">Tasks</a>
+          </li>
+          <li class="list-group-item">
+            <a routerLink="users">Users</a>
+          </li>
+          <li class="list-group-item">
+            Stats
+            <span class="position-absolute top-5 start-100 translate-middle badge rounded-pill bg-danger">
+            Coming Soon!
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-10 col-sm-8">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
