@@ -4,10 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { TaskCardComponent } from './components/task-card/task-card.component';
+import { TaskCardComponent } from './components/task-details/task-details.component';
 import { TaskCreateComponent } from './components/task-create/task-create.component';
 import { FormsModule } from '@angular/forms';
 import { UsersComponent } from './components/users/users.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UsersComponent } from './components/users/users.component';
     TodoListComponent,
     TaskCardComponent,
     TaskCreateComponent,
-    UsersComponent
+    UsersComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

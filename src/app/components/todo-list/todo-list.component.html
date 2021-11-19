@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1><i class="bi bi-activity"></i> Todo List {{ showTaskDetails }} </h1>
+      <h1><i class="bi bi-activity"></i> Todo List </h1>
     </div>
 
     <div class="col-12">
@@ -52,9 +52,9 @@
 
 
 <div *ngIf="showTaskDetails">
-  <app-task-card [task]="selectedTask" class="task-details-container"
+  <app-task-details [task]="selectedTask" class="task-details-container"
     (taskDetailsCloseEvent)="toggleTaskDetails(null, true)">
-  </app-task-card>
+  </app-task-details>
   <div class="task-details-overlay" (click)="toggleTaskDetails(null, true)">
   </div>
 </div>

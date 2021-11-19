@@ -8,8 +8,15 @@
     </div>
   
     <div class="card-body">
-      Author: {{ task?.author }}
-  
+      <div>
+        Author: {{ task?.author }}
+      </div>
+      <div>
+        Assigned to:
+        <a routerLink="/users/{{ task?.userId }}">
+          {{ task?.user?.name }} / {{ task?.user?.email }}
+        </a>
+      </div>
       <hr>
       <div class="comments">
         <h6 class="mb-3">Add a comment</h6>

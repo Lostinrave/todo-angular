@@ -1,73 +1,121 @@
 <div class="row">
-    <div class="col-8">
-      <h1 class="mt-3">
-        <i class="bi bi-people-fill"></i> Users
-      </h1>
-    </div>
-    <div class="col-4 justify-content-center align-items-center text-end">
-      <button
-      (click)="toggleCreateForm()"
-      class="btn btn-primary mt-3">
+  <div class="col-8">
+    <h1 class="mt-3"><i class="bi bi-people-fill"></i> Users</h1>
+  </div>
+  <div class="col-4 justify-content-center align-items-center text-end">
+    <button (click)="toggleCreateForm()" class="btn btn-primary mt-3">
       <i class="bi bi-people-fill"></i> Add New User
-      </button>
-    </div>
+    </button>
   </div>
-  
-  <div class="row">
-    <div class="col-12" [hidden]="hideForm">
-      <h2>Add New User</h2>
-      <form (ngSubmit)="addUser()" class="mb-3">
-        <div class="row">
-          <div class="col">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" required [(ngModel)]="newUser.email" name="email" class="form-control" id="email">
-            </div>
-          </div>
-          <div class="col">
-            <div class="mb-3">
-              <label for="userName" class="form-label">Name</label>
-              <input type="text" required [(ngModel)]="newUser.name" name="name" class="form-control" id="userName">
-            </div>
-          </div>
-        </div>
-  
-        <div class="row">
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </div>
-      </form>
+</div>
+
+<div class="row">
+  <div class="col-12" [hidden]="hideForm">
+    <div
+      class="alert alert-danger"
+      *ngIf="userForm.submitted && userForm.invalid"
+    >
+      <!-- Div'as naudojams klaidoms atvaizduoti -->
+      <div *ngIf="email.errors?.['pattern']">This is not a valid email</div>
+      <div *ngIf="email.errors?.['required']">Email is required</div>
+      <div *ngIf="name.errors?.['minlength']">
+        Name has to contain atleast 3 symbols
+      </div>
+      <div *ngIf="name.errors?.['required']">Name is required</div>
     </div>
-  
-  </div>
-  
-  <div class="row">
-    <div class="col-sm-6" *ngFor="let user of users">
-      <div class="card mb-3">
-        <div class="card-header">
-          {{ user.name }}
+    <h2>Add New User</h2>
+    <form (ngSubmit)="addUser(userForm)" #userForm="ngForm" class="mb-3">
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              required
+              [(ngModel)]="newUser.email"
+              name="email"
+              class="form-control"
+              id="email"
+              required
+              #email="ngModel"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              [class.is-valid]="email.valid"
+              [class.is-invalid]="email.invalid && userForm.submitted"
+            />
+          </div>
         </div>
-  
-        <div class="card-body">
-          <div class="row">
-            <div class="col-4">
-              <!-- Patikriname ar user objektas turi picture reiksme -->
-              <img class="img-fluid" [src]="user.picture" *ngIf="user.picture" />
-              <!-- Jei neturi, tuomet atvaizduojama standartini paveiksleli -->
-              <img class="img-fluid" [src]="" *ngIf="!user.picture" />
-            </div>
-  
-            <div class="col-8">
-              <div>
-                Email: {{ user.email }}
-              </div>
-              <div>
-                ID: {{ user.id }}
-              </div>
-            </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="userName" class="form-label">Name</label>
+            <input
+              type="text"
+              required
+              [(ngModel)]="newUser.name"
+              name="name"
+              class="form-control"
+              id="userName"
+              #name="ngModel"
+              minlength="3"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && userForm.submitted"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button
+            type="button"
+            class="ms-3 btn btn-warning"
+            (click)="userForm.resetForm()"
+          >
+            Reset Form
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6" *ngFor="let user of users">
+    <div class="card mb-3">
+      <div class="card-header">
+        <div class="d-flex">
+          <div class="col-6">
+            {{ user.name }}
+          </div>
+          <div class="col-6 d-flex justify-content-end">
+            <button (click)="deleteUser(user)" class="btn btn-danger bg-danger">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-4">
+            <!-- Patikriname ar user objektas turi picture reiksme -->
+            <img class="img-fluid" [src]="user.picture" *ngIf="user.picture" />
+            <!-- Jei neturi, tuomet atvaizduojama standartini paveiksleli -->
+            <img
+              class="img-fluid"
+              [src]="defaultAvatar"
+              *ngIf="!user.picture"
+            />
+          </div>
+
+          <div class="col-8">
+            <div>Email: {{ user.email }}</div>
+            <div>ID: {{ user.id }}</div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

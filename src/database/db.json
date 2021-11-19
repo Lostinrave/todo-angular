@@ -1,35 +1,22 @@
 {
-  "tasks": [
-    {
-      "title": "Learn React",
-      "completed": false,
-      "author": "Ben",
-      "id": 5
-    },
-    {
-      "title": "Learn Angular",
-      "completed": false,
-      "author": "Ben",
-      "id": 6
-    },
-    {
-      "title": "Get a Job",
-      "completed": false,
-      "author": "Ben",
-      "priority": "high",
-      "id": 7
-    }
-  ],
+  "tasks": [],
   "users": [
-    {
-      "id": 1,
-      "name": "lost",
-      "email": "lostinrave@gmail.com"
-    },
     {
       "name": "Ben",
       "email": "benaskalvinas@gmail.com",
+      "id": 1
+    },
+    {
+      "name": "Frodo",
+      "email": "frodobagins@gmail.com",
       "id": 2
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Project 1",
+      "logo": "#"
     }
   ]
 }

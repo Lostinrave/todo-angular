@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-users',
@@ -24,9 +26,11 @@ export class UsersComponent implements OnInit {
   }
 
   // Standartinis avatar, kuris naudojamas jei vartotojas neturi nuotraukos
-  public defaultAvatar: string = "assets/img/default-avatar.jpeg";
+  public defaultAvatar: string = "assets/img/default-avatar.png";
 
   public hideForm : boolean = true;
+
+  // @Output() newItemEvent = new EventEmitter();
 
   constructor(private _userService: UserService) { }
 
@@ -46,18 +50,28 @@ export class UsersComponent implements OnInit {
   }
 
 
-  addUser() {
+  addUser(form: NgForm) {
     console.log(this.newUser);
-    // Cia butu atlieka validacija
-    this._userService.createUser(this.newUser).subscribe((data: any) => {
+    if(form.valid){
+      this._userService.createUser(this.newUser)
+        .subscribe((data: any) => {
+          alert("User succesfully added!");
+          // Po sukurimo, nustatome tuscias reiksmes, formos kintamiesiems
+          form.resetForm();
+          this.getUsers();
+      });
+    }
+  }
 
-      // Po sukurimo, nustatome tuscias reiksmes, formos kintamiesiems
-      this.newUser.name = "";
-      this.newUser.email = "";
+  deleteUser(user: User) {
+    console.log('User Will be deleted:');
+    console.log(user);
+    this._userService.deleteUser(user).subscribe(data => {
+      console.log(data);
+      // Po sekmingo istrynimo atnaujiname tasks duomenis
       this.getUsers();
     });
   }
-
 
 
 }
