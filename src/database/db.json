@@ -1,5 +1,54 @@
 {
-  "tasks": [],
+  "tasks": [
+    {
+      "title": "Get workaround for taskDelete error",
+      "completed": false,
+      "author": "Ben",
+      "priority": "high",
+      "user_id": 1,
+      "id": 1
+    },
+    {
+      "title": "User id 2 test",
+      "completed": true,
+      "author": "Frodo",
+      "priority": "low",
+      "user_id": 2,
+      "id": 2
+    },
+    {
+      "title": "User id 3 test",
+      "completed": true,
+      "author": "Gandalf",
+      "priority": "low",
+      "user_id": 3,
+      "id": 3
+    },
+    {
+      "title": "Users details page",
+      "completed": false,
+      "author": "Ben",
+      "priority": "high",
+      "user_id": 1,
+      "id": 4
+    },
+    {
+      "title": "Users and task edit page",
+      "completed": false,
+      "author": "Ben",
+      "priority": "low",
+      "user_id": "1",
+      "id": 5
+    },
+    {
+      "title": "User-create component",
+      "completed": true,
+      "author": "Ben",
+      "priority": "low",
+      "user_id": "1",
+      "id": 6
+    }
+  ],
   "users": [
     {
       "name": "Ben",
@@ -10,6 +59,16 @@
       "name": "Frodo",
       "email": "frodobagins@gmail.com",
       "id": 2
+    },
+    {
+      "name": "Gandalf",
+      "email": "gandalf@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "Lost",
+      "email": "lostinrave@gmail.com",
+      "id": 4
     }
   ],
   "projects": [

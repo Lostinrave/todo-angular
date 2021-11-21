@@ -89,7 +89,14 @@ ngForm - pasakoma, kad sis kintamasis saugo visos formos duomenis
         <option value="low" [ngValue]="'low'">Low</option>
       </select>
     </div>
-
+    <div class="col-4 mt-3">
+      <select name="user_id" class="form-select" [(ngModel)]="task.user_id">
+        <option value="0">Select user</option>
+        <option *ngFor="let user of users" [value]="user.id">
+          {{ user.email }} - {{ user.id }}
+        </option>
+      </select>
+    </div>
     <div class="col-4">
       <div class="form-group mt-3">
         <!-- Dinaminio disabled atributo pavyzdys

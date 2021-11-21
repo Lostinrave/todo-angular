@@ -20,10 +20,10 @@ export class UsersComponent implements OnInit {
   public users: User[] = [];
 
   // Kintamasis irasyti naujai sukuriamo userio duomenis
-  public newUser: User = {
-    'name': '',
-    'email': ''
-  }
+  // public newUser: User = {
+  //   'name': '',
+  //   'email': ''
+  // }
 
   // Standartinis avatar, kuris naudojamas jei vartotojas neturi nuotraukos
   public defaultAvatar: string = "assets/img/default-avatar.png";
@@ -50,28 +50,29 @@ export class UsersComponent implements OnInit {
   }
 
 
-  addUser(form: NgForm) {
-    console.log(this.newUser);
-    if(form.valid){
-      this._userService.createUser(this.newUser)
-        .subscribe((data: any) => {
-          alert("User succesfully added!");
-          // Po sukurimo, nustatome tuscias reiksmes, formos kintamiesiems
-          form.resetForm();
-          this.getUsers();
-      });
-    }
-  }
+  // addUser(form: NgForm) {
+  //   console.log(this.newUser);
+  //   if(form.valid){
+  //     this._userService.createUser(this.newUser)
+  //       .subscribe((data: any) => {
+  //         alert("User succesfully added!");
+  //         // Po sukurimo, nustatome tuscias reiksmes, formos kintamiesiems
+  //         form.resetForm();
+  //         this.getUsers();
+  //     });
+  //   }
+  // }
 
   deleteUser(user: User) {
-    console.log('User Will be deleted:');
-    console.log(user);
-    this._userService.deleteUser(user).subscribe(data => {
-      console.log(data);
-      // Po sekmingo istrynimo atnaujiname tasks duomenis
-      this.getUsers();
-    });
+    // console.log('User Will be deleted:');
+    // console.log(user);
+    let userAction = confirm(`Do you really want to delete ${user.name} ?`);
+    if(userAction){
+      this._userService.deleteUser(user).subscribe(data => {
+        console.log(data);
+        // Po sekmingo istrynimo atnaujiname tasks duomenis
+        this.getUsers();
+      });  
+    }
   }
-
-
 }

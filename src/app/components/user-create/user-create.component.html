@@ -1,0 +1,62 @@
+<div class="alert alert-danger" *ngIf="userForm.submitted && userForm.invalid">
+  <!-- Div'as naudojams klaidoms atvaizduoti -->
+  <div *ngIf="email.errors?.['pattern']">This is not a valid email</div>
+  <div *ngIf="email.errors?.['required']">Email is required</div>
+  <div *ngIf="name.errors?.['minlength']">
+    Name has to contain atleast 3 symbols
+  </div>
+  <div *ngIf="name.errors?.['required']">Name is required</div>
+</div>
+<h2>Add New User</h2>
+<form (ngSubmit)="addUser(userForm)" #userForm="ngForm" class="mb-3">
+  <div class="row">
+    <div class="col">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          required
+          [(ngModel)]="newUser.email"
+          name="email"
+          class="form-control"
+          id="email"
+          required
+          #email="ngModel"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          [class.is-valid]="email.valid"
+          [class.is-invalid]="email.invalid && userForm.submitted"
+        />
+      </div>
+    </div>
+    <div class="col">
+      <div class="mb-3">
+        <label for="userName" class="form-label">Name</label>
+        <input
+          type="text"
+          required
+          [(ngModel)]="newUser.name"
+          name="name"
+          class="form-control"
+          id="userName"
+          #name="ngModel"
+          minlength="3"
+          [class.is-valid]="name.valid"
+          [class.is-invalid]="name.invalid && userForm.submitted"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button
+        type="button"
+        class="ms-3 btn btn-warning"
+        (click)="userForm.resetForm()"
+      >
+        Reset Form
+      </button>
+    </div>
+  </div>
+</form>
