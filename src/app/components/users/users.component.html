@@ -21,7 +21,7 @@
       <div class="card-header">
         <div class="d-flex">
           <div class="col-6">
-            {{ user.name }}
+            <a class="text-decoration-none text-dark" routerLink="/users/{{user.id}}"> {{ user.name }}</a>
           </div>
           <div class="col-6 d-flex justify-content-end">
             <button (click)="deleteUser(user)" class="btn btn-danger bg-danger">
